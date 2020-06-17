@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop_app/model/product.dart';
+import 'package:shop_app/providers/cart.dart';
 import 'package:shop_app/widget/product_detail_page.dart';
 
 class ProductItem extends StatelessWidget {
@@ -11,6 +12,8 @@ class ProductItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final _product = Provider.of<Product>(context, listen: false);
+    //listen is false when I'm not interested in perform changes on the ui, so I don't care about the cart changes
+    final _cart = Provider.of<Cart>(context, listen: false); 
 
     return ClipRRect(
       borderRadius: BorderRadius.circular(10),
@@ -46,7 +49,9 @@ class ProductItem extends StatelessWidget {
           trailing: IconButton(
             icon: Icon(Icons.shopping_cart),
             color: Theme.of(context).accentColor,
-            onPressed: () {},
+            onPressed: () {
+              _cart.add(_product.id, _product.price, _product.title);
+            },
           ),
         ),
       ),
