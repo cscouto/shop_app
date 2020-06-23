@@ -25,6 +25,14 @@ class Cart with ChangeNotifier {
     return _items.length;
   }
 
+  double get totalAmmout {
+    return _items.values.fold(
+      0,
+      (previousValue, element) =>
+          previousValue + (element.price * element.quantity),
+    );
+  }
+
   void add(String productId, double price, String title) {
     if (_items.containsKey(productId)) {
       _items.update(

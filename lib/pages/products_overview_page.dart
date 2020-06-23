@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shop_app/pages/cart_page.dart';
 import 'package:shop_app/providers/cart.dart';
 import 'package:shop_app/widget/badge.dart';
 import 'package:shop_app/widget/products_grid.dart';
@@ -51,7 +52,9 @@ class _ProductOverviewPageState extends State<ProductOverviewPage> {
             ),
             child: IconButton(
               icon: Icon(Icons.shopping_cart),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pushNamed(CartPage.routeName);
+              },
             ),
           ),
         ],
