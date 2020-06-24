@@ -54,6 +54,9 @@ class CartPage extends StatelessWidget {
                 return CartItemWidget(
                   ValueKey(_item.id),
                   _item,
+                  (_) {
+                    _provider.removeItem(_item.id);
+                  },
                 );
               },
               itemCount: _provider.itemCount,
