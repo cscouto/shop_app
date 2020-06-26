@@ -29,7 +29,7 @@ class CartPage extends StatelessWidget {
                   Spacer(),
                   Chip(
                     label: Text(
-                      '\$${_provider.totalAmmout}',
+                      '\$${_provider.totalAmmout.toStringAsFixed(2)}',
                       style: TextStyle(
                           color: Theme.of(context)
                               .primaryTextTheme
